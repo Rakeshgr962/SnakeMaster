@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Jungle Rush: Chameleon</title>
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Nunito:wght@700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://sdk.crazygames.com/crazygames-sdk-v3.js"></script>
+</head>
+<body>
+    <div id="hud" style="display: none;">
+        <div class="stat-container">
+            <div class="stat-pill"><span class="icon">🍎</span> <span id="score">0</span></div>
+            <div class="stat-pill"><span class="icon">🏆</span> <span id="highScore">0</span></div>
+        </div>
+        <button id="pauseBtn" class="hud-btn">⏸️</button>
+    </div>
+    <div id="waterOverlay"></div>
+    <div id="startScreen" class="overlay active">
+        <div class="card bounce-in">
+            <div class="logo-area"><h1>JUNGLE</h1><h1 class="outline">RUSH</h1></div>
+            <p class="subtitle">Chameleon Mode</p>
+            <div class="controls-hint"><div class="key">W</div><div class="key">A</div><div class="key">S</div><div class="key">D</div><span>or SWIPE</span></div>
+            <button id="startBtn" class="mega-btn pulse">▶ START ADVENTURE</button>
+        </div>
+    </div>
+    <div id="pauseScreen" class="overlay" style="display: none;">
+        <div class="card">
+            <h1>PAUSED</h1>
+            <div class="btn-stack"><button id="resumeBtn" class="primary-btn">RESUME GAME</button><button id="quitFromPauseBtn" class="secondary-btn">QUIT TO MENU</button></div>
+        </div>
+    </div>
+    <div id="gameOver" class="overlay" style="display: none;">
+        <div class="card">
+            <h1 class="crash-text">GAME OVER</h1>
+            <div class="score-card">
+                <div class="score-row"><span>FINAL SCORE</span><h2 id="finalScore">0</h2></div>
+                <div class="score-row best"><span>BEST SCORE</span><h3 id="finalBest">0</h3></div>
+            </div>
+            <div class="btn-stack">
+                <button id="restartBtn" class="mega-btn">🔄 RESTART</button>
+                <button id="quitBtn" class="secondary-btn">🏠 QUIT TO MENU</button>
+                <button id="reviveBtn" class="revive-btn">📺 REVIVE (Keep Score)</button>
+            </div>
+        </div>
+    </div>
+    <div id="bannerAd"></div>
+    <script src="game.js"></script>
+</body>
+</html>

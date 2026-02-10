@@ -1,0 +1,181 @@
+/* ==================== RESET ==================== */
+* {
+    box-sizing: border-box;
+    -webkit-tap-highlight-color: transparent;
+    user-select: none;
+}
+
+html, body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    background: #87CEEB;
+    font-family: 'Nunito', sans-serif;
+}
+
+canvas {
+    display: block;
+    width: 100% !important;
+    height: calc(100% - 70px) !important;
+    outline: none;
+    z-index: 0;
+}
+
+/* ==================== HUD ==================== */
+#hud {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    right: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    pointer-events: none;
+    z-index: 20;
+}
+
+.stat-container { display: flex; gap: 10px; }
+
+.stat-pill {
+    background: rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(10px);
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    border-radius: 50px;
+    padding: 8px 16px;
+    color: white;
+    font-family: 'Fredoka One', cursive;
+    font-size: 20px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.hud-btn {
+    pointer-events: auto;
+    width: 45px; height: 45px;
+    border-radius: 50%;
+    border: 2px solid white;
+    background: rgba(0,0,0,0.5);
+    color: white;
+    font-size: 20px;
+    display: flex; align-items: center; justify-content: center;
+    cursor: pointer;
+}
+
+/* ==================== OVERLAYS ==================== */
+.overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.85);
+    backdrop-filter: blur(8px);
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+}
+
+.overlay.active {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+#gameOver { z-index: 200; }
+
+.card {
+    background: white;
+    padding: 30px;
+    border-radius: 35px;
+    width: 90%;
+    max-width: 380px;
+    text-align: center;
+    box-shadow: 0 25px 60px rgba(0,0,0,0.5);
+    border: 6px solid #f0f0f0;
+    transform: scale(0.9);
+    transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+    position: relative;
+}
+.bounce-in { transform: scale(1); }
+
+/* ==================== SCORE CARD ==================== */
+.score-card {
+    background: #FAFAFA;
+    border-radius: 25px;
+    padding: 20px;
+    margin-bottom: 20px;
+    border: 2px solid #EEE;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+.score-row span { display: block; font-size: 12px; color: #999; font-weight: 800; letter-spacing: 1px; margin-bottom: 5px; }
+.score-row h2 { font-family: 'Fredoka One'; font-size: 56px; color: #333; margin: 0; line-height: 0.9; }
+.score-row.best h3 { font-family: 'Fredoka One'; font-size: 28px; color: #FFB300; margin: 0; }
+
+/* ==================== BUTTONS ==================== */
+.btn-stack { display: flex; flex-direction: column; gap: 12px; }
+
+button {
+    font-family: 'Fredoka One', cursive;
+    cursor: pointer;
+    border: none;
+    transition: transform 0.1s;
+    outline: none;
+    -webkit-tap-highlight-color: transparent;
+    pointer-events: auto !important;
+}
+button:active { transform: scale(0.96); }
+
+.mega-btn {
+    width: 100%; padding: 20px;
+    border-radius: 25px;
+    font-size: 24px; color: white;
+    background: linear-gradient(180deg, #00E676 0%, #00C853 100%);
+    box-shadow: 0 8px 0 #009624;
+    margin-bottom: 10px;
+}
+
+.primary-btn {
+    width: 100%; padding: 16px;
+    border-radius: 18px;
+    font-size: 20px; color: white;
+    background: #2196F3;
+    box-shadow: 0 6px 0 #1565C0;
+}
+
+.revive-btn {
+    width: 100%; padding: 16px;
+    border-radius: 18px;
+    font-size: 18px; color: white;
+    background: linear-gradient(180deg, #FFA726, #FB8C00);
+    box-shadow: 0 6px 0 #EF6C00;
+}
+
+.secondary-btn {
+    width: 100%; padding: 16px;
+    border-radius: 18px;
+    font-size: 18px; color: #546E7A;
+    background: #ECEFF1;
+    box-shadow: 0 6px 0 #CFD8DC;
+}
+
+.pulse { animation: pulse 1.5s infinite; }
+@keyframes pulse { 0% { transform: scale(1); } 50% { transform: scale(1.05); } 100% { transform: scale(1); } }
+
+/* ==================== TEXT ==================== */
+h1 { font-family: 'Fredoka One'; margin: 0; line-height: 0.9; font-size: 48px; color: #4CAF50; text-shadow: 3px 3px 0 #1B5E20; }
+h1.outline { color: transparent; -webkit-text-stroke: 2px #4CAF50; text-shadow: none; }
+h1.crash-text { color: #FF5252; text-shadow: 3px 3px 0 #B71C1C; margin-bottom: 20px; font-size: 42px; }
+.subtitle { color: #888; font-weight: 800; margin-bottom: 25px; margin-top: 10px; }
+
+/* ==================== EXTRAS ==================== */
+.controls-hint { display: flex; justify-content: center; gap: 8px; margin-bottom: 30px; color: #aaa; font-weight: 800; align-items: center; }
+.key { width: 32px; height: 32px; background: #eee; border: 2px solid #ddd; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 14px; color: #666; box-shadow: 0 3px 0 #ccc; }
+
+#bannerAd { position: fixed; bottom: 0; width: 100%; height: 70px; background: rgba(0,0,0,0.8); z-index: 90; display: flex; justify-content: center; align-items: center; pointer-events: none; }
+#waterOverlay { position: fixed; inset: 0; background: radial-gradient(circle, transparent 50%, rgba(0, 100, 255, 0.4) 100%); pointer-events: none; opacity: 0; transition: opacity 0.3s; z-index: 5; mix-blend-mode: overlay; }
+#waterOverlay.active { opacity: 1; }
