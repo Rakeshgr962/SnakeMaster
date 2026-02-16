@@ -21,7 +21,6 @@ canvas {
     outline: none;
     z-index: 0;
 }
-
 /* ==================== HUD ==================== */
 #hud {
     position: fixed;
@@ -179,3 +178,4 @@ h1.crash-text { color: #FF5252; text-shadow: 3px 3px 0 #B71C1C; margin-bottom: 2
 #waterOverlay { position: fixed; inset: 0; background: radial-gradient(circle, transparent 50%, rgba(0, 100, 255, 0.4) 100%); pointer-events: none; opacity: 0; transition: opacity 0.3s; z-index: 5; mix-blend-mode: overlay; }
 
 #waterOverlay.active { opacity: 1; }
+
