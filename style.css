@@ -4,7 +4,6 @@
     -webkit-tap-highlight-color: transparent;
     user-select: none;
 }
-
 html, body {
     margin: 0;
     padding: 0;
@@ -178,4 +177,5 @@ h1.crash-text { color: #FF5252; text-shadow: 3px 3px 0 #B71C1C; margin-bottom: 2
 
 #bannerAd { position: fixed; bottom: 0; width: 100%; height: 70px; background: rgba(0,0,0,0.8); z-index: 90; display: flex; justify-content: center; align-items: center; pointer-events: none; }
 #waterOverlay { position: fixed; inset: 0; background: radial-gradient(circle, transparent 50%, rgba(0, 100, 255, 0.4) 100%); pointer-events: none; opacity: 0; transition: opacity 0.3s; z-index: 5; mix-blend-mode: overlay; }
+
 #waterOverlay.active { opacity: 1; }
