@@ -1,4 +1,4 @@
-// ==================== CRAZYGAMES SDK ====================
+// ==================== CRAZYGAMES SDK ==========================================================
 const CrazySDK = {
     crazysdk: null,
     init: async function() {
@@ -518,5 +518,6 @@ function onWindowResize() {
     camera.updateProjectionMatrix();
     renderer.setSize(window.innerWidth, window.innerHeight);
 }
+
 
 window.addEventListener('DOMContentLoaded', init);
